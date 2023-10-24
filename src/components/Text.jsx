@@ -1,12 +1,17 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
 
-function MyCursiveText() {
+function MyCursiveText({ filteredImages }) {
   return (
-    <Typography variant="h4" sx={{ fontFamily: 'cursive' }}>
-      This is a cursive text example.
-    </Typography>
-  );
-}
+    <>
+    {filteredImages.length === 0 ? (
+      <></>
+    ) : (
+      <Typography variant="h1" sx={{ fontFamily: "Tangerine, cursive" }}>
+        Vaishnavi with Narasimha
+      </Typography>
+    )}
+  </>
+)}
 
 export default MyCursiveText;

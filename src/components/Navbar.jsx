@@ -69,11 +69,11 @@ export default function HideAppBar(props) {
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <Avatar
                 alt="Cindy Baker"
-                src="https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8d2VkZGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                src="https://img.freepik.com/premium-vector/cute-little-girl-measure-length-using-foot-step_97632-6172.jpg?w=740"
               />
               <Avatar
                 alt="Another Avatar"
-                src="https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8d2VkZGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                src="https://img.freepik.com/premium-vector/cartoon-little-boy-summer-clothing-waving-hand_353337-444.jpg?w=360"
               />
             </div>
           </Toolbar>

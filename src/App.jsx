@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import PhotoGallery from './components/PhotoGallery'
 import MyCursiveText from './components/Text'
 import { images } from './assets/index'
+import ScrollProgressBars from './components/ProgressBar'
 
 const App = () => {
 
@@ -23,8 +24,10 @@ const App = () => {
   return (
     <div className='w-full mx-auto text-center'>
       <Navbar onSelectCategory={handleCategorySelection} />
+      
       <div style={{ marginTop: '60px' }}>
-        <MyCursiveText />
+      <ScrollProgressBars />
+        <MyCursiveText filteredImages={filteredImages}/>
       </div>
       {filteredImages.length === 0 ? (
         <div className="h-screen flex flex-col justify-center items-center">
