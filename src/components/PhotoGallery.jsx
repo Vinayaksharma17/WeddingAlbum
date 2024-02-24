@@ -5,7 +5,7 @@ const PhotoGallery = ({images}) => {
     <div>
       <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-24">
         <div className="-m-1 flex flex-wrap md:-m-2 justify-center">
-        {images.map((image, index) => (
+        {images.map((image) => (
             <div
               className="w-[700px] p-1 md:p-2"
               key={image.id}
@@ -24,3 +24,5 @@ const PhotoGallery = ({images}) => {
 };
 
 export default PhotoGallery;
+
+

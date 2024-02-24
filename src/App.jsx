@@ -4,7 +4,8 @@ import PhotoGallery from './components/PhotoGallery'
 import MyCursiveText from './components/Text'
 import { images } from './assets/index'
 import ScrollProgressBars from './components/ProgressBar'
-
+import image from './assets/image.jpg'
+import Album from './components/Album'
 const App = () => {
 
     const [selectedCategory, setSelectedCategory] = useState('All')
@@ -23,10 +24,21 @@ const App = () => {
   
   return (
     <div className='w-full mx-auto text-center'>
-      <Navbar onSelectCategory={handleCategorySelection} />
+      <Album />
+
+      {/* <Navbar onSelectCategory={handleCategorySelection} />
       
       <div style={{ marginTop: '60px' }}>
       <ScrollProgressBars />
+      <img 
+      src={image} 
+      alt='image' 
+      style={{
+        display: 'block',
+        margin: '0 auto',
+        maxWidth: '20%', // Adjust the maximum width as needed
+        height: 'auto',
+      }}/>
         <MyCursiveText filteredImages={filteredImages}/>
       </div>
       {filteredImages.length === 0 ? (
@@ -44,7 +56,7 @@ const App = () => {
         </div>
       ) : (
         <PhotoGallery images={filteredImages} />
-      )}
+      )} */}
     </div>
   )
 }

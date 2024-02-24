@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { LinearProgress, Avatar } from "@mui/material";
+import Confetti from "react-confetti";
 
 const ProgressBar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [showConfetti, setShowConfetti] = useState(false);
 
   const updateScrollProgress = () => {
     const scrollY = window.scrollY || window.pageYOffset;
@@ -10,6 +12,13 @@ const ProgressBar = () => {
       document.documentElement.scrollHeight - window.innerHeight;
     const progress = (scrollY / documentHeight) * 100;
     setScrollProgress(progress);
+
+    // Check if both avatars are close to each other
+    if (progress >= 49 && progress <= 51) {
+      setShowConfetti(true);
+    } else {
+      setShowConfetti(false);
+    }
   };
 
   useEffect(() => {
@@ -19,8 +28,8 @@ const ProgressBar = () => {
     };
   }, []);
 
-  const avatarLeftPosition = `${scrollProgress / 2}%`;
-  const avatarRightPosition = `${100 - scrollProgress / 2}%`;
+  const avatarLeftPosition = `${scrollProgress / 2.1}%`;
+  const avatarRightPosition = `${99 - scrollProgress / 2}%`;
 
   return (
     <>
@@ -48,7 +57,10 @@ const ProgressBar = () => {
           top: "10px", // Adjust the vertical positioning as needed
         }}
       >
-        <img src="https://img.freepik.com/premium-vector/cute-little-girl-measure-length-using-foot-step_97632-6172.jpg?w=740" alt="Left Avatar" />
+        <img
+          src="https://img.freepik.com/premium-vector/cute-little-girl-measure-length-using-foot-step_97632-6172.jpg?w=740"
+          alt="Left Avatar"
+        />
       </Avatar>
       <Avatar
         sx={{
@@ -57,8 +69,18 @@ const ProgressBar = () => {
           top: "10px", // Adjust the vertical positioning as needed
         }}
       >
-        <img src="https://img.freepik.com/premium-vector/cartoon-little-boy-summer-clothing-waving-hand_353337-444.jpg?w=360" alt="Right Avatar" />
+        <img
+          src="https://img.freepik.com/premium-vector/cartoon-little-boy-summer-clothing-waving-hand_353337-444.jpg?w=360"
+          alt="Right Avatar"
+        />
       </Avatar>
+      {showConfetti && (
+        <Confetti
+          width={window.innerWidth}
+          height={window.innerHeight}
+          recycle={false}
+        />
+      )}
     </>
   );
 };

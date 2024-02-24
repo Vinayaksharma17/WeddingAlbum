@@ -8,7 +8,7 @@ import Slide from '@mui/material/Slide';
 import Avatar from '@mui/material/Avatar';
 import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import MultipleSelect from './Select';
+import Select from './Select';
 
 const useStyles = {
   fab: {
@@ -56,7 +56,7 @@ function ScrollTop(props) {
   );
 }
 
-export default function HideAppBar(props) {
+export default function Navbar(props) {
   return (
     <React.Fragment>
       <CssBaseline />
@@ -64,7 +64,7 @@ export default function HideAppBar(props) {
         <AppBar>
           <Toolbar sx={{ justifyContent: 'space-between' }}>
             <div>
-              <MultipleSelect onSelectCategory={props.onSelectCategory}/>
+              <Select onSelectCategory={props.onSelectCategory}/>
             </div>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <Avatar

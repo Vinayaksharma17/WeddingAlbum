@@ -8,9 +8,13 @@ function MyCursiveText({ filteredImages }) {
       <></>
     ) : (
       <Typography variant="h1" sx={{ fontFamily: "Tangerine, cursive" }}>
-        Vaishnavi with Narasimha
+       Narasimha with Vaishnavi  
       </Typography>
-    )}
+    )
+    }
+     <Typography variant="h3" sx={{ fontFamily: "Tangerine, cursive" }}>
+       We wellcome you to our photo gallery
+      </Typography>
   </>
 )}
 
