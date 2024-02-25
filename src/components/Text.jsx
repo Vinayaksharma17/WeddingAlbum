@@ -2,6 +2,7 @@ import * as React from 'react';
 import Typography from '@mui/material/Typography';
 
 function MyCursiveText({ filteredImages }) {
+  console.log('filtered', filteredImages);
   return (
     <>
     {filteredImages.length === 0 ? (

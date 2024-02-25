@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ref, listAll, getDownloadURL } from 'firebase/storage';
 import { storage } from '../firebase';
+import Navbar from './Navbar';
 
 const Album = () => {
   const [categories, setCategories] = useState([]);
@@ -51,6 +52,7 @@ const Album = () => {
 
   return (
     <div>
+      <Navbar onSelectCategory={handleCategoryChange} />
       <h1>Photo Album</h1>
 
       {/* Category selection dropdown */}
