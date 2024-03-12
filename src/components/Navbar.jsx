@@ -8,7 +8,7 @@ import Slide from '@mui/material/Slide';
 import Avatar from '@mui/material/Avatar';
 import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import Select from './Select';
+// import jiju_ok from '../assets/jiju_ok.JPG'
 
 const useStyles = {
   fab: {
@@ -64,12 +64,11 @@ export default function Navbar(props) {
         <AppBar>
           <Toolbar sx={{ justifyContent: 'space-between' }}>
             <div>
-              <Select onSelectCategory={props.onSelectCategory}/>
             </div>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <Avatar
                 alt="Cindy Baker"
-                src="https://img.freepik.com/premium-vector/cute-little-girl-measure-length-using-foot-step_97632-6172.jpg?w=740"
+                src={"https://img.freepik.com/premium-vector/cute-little-girl-measure-length-using-foot-step_97632-6172.jpg?w=740"}
               />
               <Avatar
                 alt="Another Avatar"

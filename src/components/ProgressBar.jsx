@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { LinearProgress, Avatar } from "@mui/material";
 import Confetti from "react-confetti";
+import image from '../assets/vai.jpg';
+import jiju_ok from '../assets/jiju_ok.jpg';
+import style from './progressBar.css';
 
 const ProgressBar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   const updateScrollProgress = () => {
     const scrollY = window.scrollY || window.pageYOffset;
-    const documentHeight =
-      document.documentElement.scrollHeight - window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = (scrollY / documentHeight) * 100;
     setScrollProgress(progress);
 
@@ -23,16 +26,21 @@ const ProgressBar = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", updateScrollProgress);
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("scroll", updateScrollProgress);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  const avatarLeftPosition = `${scrollProgress / 2.1}%`;
-  const avatarRightPosition = `${99 - scrollProgress / 2}%`;
+  // Calculate the avatar positions dynamically based on the screen width and scroll progress
+  const avatarSpacing = screenWidth > 600 ? 4 : 0.5; // Adjust spacing based on screen size
+  const avatarLeftPosition = `${Math.min(scrollProgress / 2.1, screenWidth > 600 ? 55 : 45 - avatarSpacing)}%`;
+  const avatarRightPosition = `${Math.max(100 - scrollProgress / 2, screenWidth > 600 ? 45 : 55 + avatarSpacing)}%`;
 
   return (
-    <>
+    <div style={{ display: "flex", justifyContent: "space-between" }}>
       <LinearProgress
         variant="determinate"
         value={scrollProgress}
@@ -47,32 +55,25 @@ const ProgressBar = () => {
           right: 0,
           width: "50%",
           transform: "rotateY(180deg)",
-          direction: "rtl",
         }}
       />
       <Avatar
         sx={{
           position: "fixed",
           left: avatarLeftPosition,
-          top: "10px", // Adjust the vertical positioning as needed
+          top: "10px",
         }}
       >
-        <img
-          src="https://img.freepik.com/premium-vector/cute-little-girl-measure-length-using-foot-step_97632-6172.jpg?w=740"
-          alt="Left Avatar"
-        />
+        <img src={jiju_ok} alt="Left Avatar" />
       </Avatar>
       <Avatar
         sx={{
           position: "fixed",
           left: avatarRightPosition,
-          top: "10px", // Adjust the vertical positioning as needed
+          top: "10px",
         }}
       >
-        <img
-          src="https://img.freepik.com/premium-vector/cartoon-little-boy-summer-clothing-waving-hand_353337-444.jpg?w=360"
-          alt="Right Avatar"
-        />
+        <img src={image} alt="Right Avatar" />
       </Avatar>
       {showConfetti && (
         <Confetti
@@ -81,7 +82,7 @@ const ProgressBar = () => {
           recycle={false}
         />
       )}
-    </>
+    </div>
   );
 };
 
